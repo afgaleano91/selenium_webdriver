@@ -1,7 +1,7 @@
 import unittest
 from selenium import webdriver
 
-class homePageTests(unittest.TestCase):
+class SearchTests(unittest.TestCase):
 
     def setUp(self):
         self.driver = webdriver.Chrome(executable_path= '/usr/bin/chromedriver')
@@ -13,7 +13,7 @@ class homePageTests(unittest.TestCase):
     
     def testSearchTee(self):
         driver = self.driver
-        searchField = driver.find_elements_by_name('q')
+        searchField = driver.find_element_by_name('q')
         searchField.clear()
 
         searchField.send_keys('tee')
@@ -21,7 +21,7 @@ class homePageTests(unittest.TestCase):
 
     def testSearchSaltShaker(self):
         driver = self.driver
-        searchField = driver.find_elements_by_name('q')
+        searchField = driver.find_element_by_name('q')
 
         searchField.send_keys('salt')
         searchField.submit()
@@ -43,7 +43,7 @@ class homePageTests(unittest.TestCase):
         SearchButton = self.driver.find_elements_by_class_name('button')
     
     def testCountOfPromoBannerImages(self):
-        banner_list = self.driver.find_elements_by_class_name("promos")
+        banner_list = self.driver.find_element_by_class_name("promos")
         banners = banner_list.find_elements_by_tag_name("img")
         self.assertEqual(3, len(banners))
 
